@@ -57,6 +57,10 @@ html {
     outline: none;
 }
 
+.calculator__container button:hover {
+    cursor: pointer;
+}
+
 #all-clear {
     background: #F42C04;
     color: #fff;
