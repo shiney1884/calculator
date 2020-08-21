@@ -71,7 +71,7 @@ html {
     color: #FFF;
 }
 
-#number, #number__span__2 {
+.number, .number__span__2 {
     background: #7A9B76;
     color: #fff;
 }
@@ -81,7 +81,7 @@ html {
     color: #fff;
 }
 
-#number__span__2 {
+.number__span__2 {
     grid-column: 1/3;
 }
 
