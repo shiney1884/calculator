@@ -14,7 +14,10 @@ const seven = document.getElementById('7');
 const eight = document.getElementById('8');
 const nine = document.getElementById('9');
 const divideBtn = document.getElementById('divide');
-
+const addBtn = document.getElementById('add');
+const minusBtn = document.getElementById('minus');
+const multiplyBtn = document.getElementById('multiply');
+const equalsBtn = document.getElementById('equals')
 
 
 allClearBtn.addEventListener('click', function() {
@@ -74,7 +77,7 @@ nine.addEventListener('click', function () {
 
 divideBtn.addEventListener('click', function () {
   if (prevNum.innerHTML === '') {
-      prevNum.innerHTML += currentNum.innerHTML
+      prevNum.innerHTML += currentNum.innerHTML += ' ÷'
       currentNum.innerHTML = '';
   }
   if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
@@ -82,3 +85,62 @@ divideBtn.addEventListener('click', function () {
         prevNum.innerHTML = '';
   }
 });
+
+addBtn.addEventListener('click', function () {
+    if (prevNum.innerHTML === '') {
+        prevNum.innerHTML += currentNum.innerHTML += ' +'
+        currentNum.innerHTML = '';
+    }
+    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
+        currentNum.innerHTML = +prevNum.innerHTML + +currentNum.innerHTML;
+        prevNum.innerHTML = '';
+    }
+});
+
+minusBtn.addEventListener('click', function () {
+    if (prevNum.innerHTML === '') {
+        prevNum.innerHTML += currentNum.innerHTML += ' -'
+        currentNum.innerHTML = '';
+    }
+    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
+        currentNum.innerHTML = +prevNum.innerHTML - +currentNum.innerHTML;
+        prevNum.innerHTML = '';
+    }
+});
+
+multiplyBtn.addEventListener('click', function () {
+    if (prevNum.innerHTML === '') {
+        prevNum.innerHTML += currentNum.innerHTML += ' x'
+        currentNum.innerHTML = '';
+    }
+    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
+        currentNum.innerHTML = +prevNum.innerHTML * +currentNum.innerHTML;
+        prevNum.innerHTML = '';
+    }
+});
+
+equalsBtn.addEventListener('click', function() {
+    switch (prevNum.innerHTML.charAt(length + 1)) {
+        case '+':
+            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
+            currentNum.innerHTML = +value + +currentNum.innerHTML
+            prevNum.innerHTML = ''
+            break;
+        case '÷':
+            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
+            currentNum.innerHTML = +value / +currentNum.innerHTML
+            prevNum.innerHTML = ''
+            break;
+        case '-':
+            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
+            currentNum.innerHTML = +value - +currentNum.innerHTML
+            prevNum.innerHTML = ''
+            break;
+        case 'x':
+            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
+            currentNum.innerHTML = +value * +currentNum.innerHTML
+            prevNum.innerHTML = ''
+            break;
+    }
+});
+
