@@ -77,70 +77,57 @@ nine.addEventListener('click', function () {
 
 divideBtn.addEventListener('click', function () {
   if (prevNum.innerHTML === '') {
-      prevNum.innerHTML += currentNum.innerHTML += ' ÷'
+      prevNum.innerHTML += currentNum.innerHTML + '÷'
       currentNum.innerHTML = '';
-  }
-  if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
-        currentNum.innerHTML = +prevNum.innerHTML/+currentNum.innerHTML;
-        prevNum.innerHTML = '';
   }
 });
 
 addBtn.addEventListener('click', function () {
     if (prevNum.innerHTML === '') {
-        prevNum.innerHTML += currentNum.innerHTML += ' +'
+        prevNum.innerHTML += currentNum.innerHTML + '+'
         currentNum.innerHTML = '';
     }
-    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
-        currentNum.innerHTML = +prevNum.innerHTML + +currentNum.innerHTML;
-        prevNum.innerHTML = '';
-    }
+ 
 });
 
 minusBtn.addEventListener('click', function () {
     if (prevNum.innerHTML === '') {
-        prevNum.innerHTML += currentNum.innerHTML += ' -'
+        prevNum.innerHTML += currentNum.innerHTML + '-'
         currentNum.innerHTML = '';
     }
-    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
-        currentNum.innerHTML = +prevNum.innerHTML - +currentNum.innerHTML;
-        prevNum.innerHTML = '';
-    }
+ 
 });
 
 multiplyBtn.addEventListener('click', function () {
     if (prevNum.innerHTML === '') {
-        prevNum.innerHTML += currentNum.innerHTML += ' x'
+        prevNum.innerHTML += currentNum.innerHTML + 'x'
         currentNum.innerHTML = '';
     }
-    if (prevNum.innerHTML !== '' && currentNum.innerHTML !== '') {
-        currentNum.innerHTML = +prevNum.innerHTML * +currentNum.innerHTML;
-        prevNum.innerHTML = '';
-    }
+  
 });
 
 equalsBtn.addEventListener('click', function() {
-    switch (prevNum.innerHTML.charAt(length + 1)) {
-        case '+':
-            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
-            currentNum.innerHTML = +value + +currentNum.innerHTML
+    if(prevNum.innerHTML.length >= 1 && currentNum.innerHTML.length >= 1) {
+       if(prevNum.innerHTML.includes('+')) {
+           let now = prevNum.innerHTML.slice(0, -1)
+           currentNum.innerHTML = +now + +currentNum.innerHTML
+           prevNum.innerHTML = ''
+       }
+        if (prevNum.innerHTML.includes('x')) {
+            let now = prevNum.innerHTML.slice(0, -1)
+            currentNum.innerHTML = +now * +currentNum.innerHTML
             prevNum.innerHTML = ''
-            break;
-        case '÷':
-            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
-            currentNum.innerHTML = +value / +currentNum.innerHTML
+        }
+        if (prevNum.innerHTML.includes('÷')) {
+            let now = prevNum.innerHTML.slice(0, -1)
+            currentNum.innerHTML = +now / +currentNum.innerHTML
             prevNum.innerHTML = ''
-            break;
-        case '-':
-            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
-            currentNum.innerHTML = +value - +currentNum.innerHTML
+        }
+        if (prevNum.innerHTML.includes('-')) {
+            let now = prevNum.innerHTML.slice(0, -1)
+            currentNum.innerHTML = +now - +currentNum.innerHTML
             prevNum.innerHTML = ''
-            break;
-        case 'x':
-            var value = prevNum.innerHTML.match(/\d+/g).map(Number);
-            currentNum.innerHTML = +value * +currentNum.innerHTML
-            prevNum.innerHTML = ''
-            break;
+        }
     }
 });
 
