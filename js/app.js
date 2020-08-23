@@ -26,7 +26,7 @@ allClearBtn.addEventListener('click', function() {
 });
 
 clearCurrent.addEventListener('click', function() {
-    currentNum.innerHTML = '';
+    currentNum.innerHTML = currentNum.innerHTML.slice(0, -1)
 });
 
 point.addEventListener('click', function() {
