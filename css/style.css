@@ -25,6 +25,7 @@ html {
     box-shadow: 0 0 30px 25px #F038FF;
     background: #fff;
     gap: 5px;
+    overflow: hidden;
 }
 
 .box {
