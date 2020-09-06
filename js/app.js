@@ -110,22 +110,22 @@ equalsBtn.addEventListener('click', function() {
     if(prevNum.innerHTML.length >= 1 && currentNum.innerHTML.length >= 1) {
        if(prevNum.innerHTML.includes('+')) {
            let now = prevNum.innerHTML.slice(0, -1)
-           currentNum.innerHTML = +now + +currentNum.innerHTML
+           currentNum.innerHTML = parseFloat(+now + +currentNum.innerHTML).toFixed(2);
            prevNum.innerHTML = ''
        }
         if (prevNum.innerHTML.includes('x')) {
             let now = prevNum.innerHTML.slice(0, -1)
-            currentNum.innerHTML = +now * +currentNum.innerHTML
+            currentNum.innerHTML = parseFloat(+now * +currentNum.innerHTML).toFixed(2);
             prevNum.innerHTML = ''
         }
         if (prevNum.innerHTML.includes('÷')) {
             let now = prevNum.innerHTML.slice(0, -1)
-            currentNum.innerHTML = +now / +currentNum.innerHTML
+            currentNum.innerHTML = parseFloat(+now / +currentNum.innerHTML ).toFixed(2);
             prevNum.innerHTML = ''
         }
         if (prevNum.innerHTML.includes('-')) {
             let now = prevNum.innerHTML.slice(0, -1)
-            currentNum.innerHTML = +now - +currentNum.innerHTML
+            currentNum.innerHTML = parseFloat(+now - +currentNum.innerHTML).toFixed(2);
             prevNum.innerHTML = ''
         }
     }
